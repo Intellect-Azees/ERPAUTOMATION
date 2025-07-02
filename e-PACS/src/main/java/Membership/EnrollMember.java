@@ -1,0 +1,72 @@
+package Membership;
+
+import Base.LaunchBrowser;
+import java.util.concurrent.atomic.AtomicReference;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+public class EnrollMember extends LaunchBrowser 
+{
+	public EnrollMember()
+	{
+	    PageFactory.initElements(LaunchBrowser.getDriver(), this);
+	}
+
+
+	@FindBy(xpath = "//li[@id='10001']//a[contains(text(),'Enroll Member')]")
+    public WebElement enrollMemberLink;
+
+    @FindBy(id = "CustomerType")
+    public WebElement customerTypeDropdown;
+    
+    @FindBy(id = "MemberType")
+    public WebElement memberType1;
+
+    @FindBy(id = "GeneralDetailsDTO_SurName")
+    public WebElement surnameInput;
+
+    @FindBy(id = "GeneralDetailsDTO_Name")
+    public WebElement nameInput;
+
+    @FindBy(id = "GeneralDetailsDTO_AadhaarCardNo")
+    public WebElement aadhaarCardInput;
+    
+    @FindBy(xpath="//input[@id='GeneralDetailsDTO_MemberFullName']")
+    public WebElement fullName;
+
+    @FindBy(id="GeneralDetailsDTO_NameAsPerAadhaar")
+    public WebElement nameAsPeraadharInput;
+    
+    @FindBy(id="GeneralDetailsDTO_Age")
+    public WebElement age;
+    public void enrollMember(String memberType,String surname, String name) {
+        enrollMemberLink.click();
+        Select selectedOption=new Select(customerTypeDropdown);
+        selectedOption.selectByVisibleText(memberType);
+        String selectedText = selectedOption.getFirstSelectedOption().getText();
+        String nonMember="Nominal Member";
+        String organisation="Organisation";
+        if(selectedText.equals(nonMember))
+        {
+        	Select s1=new Select(memberType1);
+        	s1.selectByVisibleText("B Class");
+        }
+        else if(selectedText.equals(organisation))
+        {
+        	Select s1=new Select(memberType1);
+        	s1.selectByVisibleText("C Class");
+        }
+        surnameInput.sendKeys(surname);
+        nameInput.sendKeys(name);
+//        aadhaarCardInput.sendKeys(aadhaarCard);
+
+        String memberfullName=fullName.getAttribute("value");
+        nameAsPeraadharInput.sendKeys(memberfullName);
+//        
+//        age.sendKeys(memberAge);
+    }
+}

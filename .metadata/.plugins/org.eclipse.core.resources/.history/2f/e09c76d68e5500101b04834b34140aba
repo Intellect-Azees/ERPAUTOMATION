@@ -1,0 +1,34 @@
+package TestData;
+
+import java.util.Random;
+
+import com.github.javafaker.Faker;
+
+public class Data_Generator {
+	static Faker faker = new Faker();
+	static Random random = new Random();
+	static String fname;
+	static String lname;
+    public static String getFirtName() {
+        String fname= faker.name().firstName();
+        return fname;
+    }
+
+    public static String getLastName() {
+        String lname= faker.name().lastName();
+        return lname;
+    }
+
+    public static String generateAadharNumber() {
+        StringBuilder aadhar = new StringBuilder();
+        for (int i = 0; i < 12; i++) {
+            aadhar.append(random.nextInt(10)); 
+        }
+        return aadhar.toString();
+    }
+    public static String getFullNemeAsAadhar()
+    {
+	 String name= Data_Generator.fname+Data_Generator.lname;
+    	return name;
+    }
+}

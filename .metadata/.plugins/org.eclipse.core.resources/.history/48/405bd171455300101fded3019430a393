@@ -1,0 +1,42 @@
+package DashBoard;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import Base.LaunchBrowser;
+
+public class Dashboard {
+
+    //private WebDriver driver;
+	WebDriver driver=LaunchBrowser.driver;
+    public Dashboard() {
+        //this.driver = driver;
+       // PageFactory.initElements(driver, this);
+    }
+
+    @FindBy(xpath = "//a[@name='Membership']")
+    private WebElement membershipMenu;
+
+    @FindBy(xpath = "//a[@class='logo-a']")
+    private WebElement homeMenu;
+
+    @FindBy(xpath = "//button[text()='OK']")
+    private WebElement okButton;
+
+    public void navigateToMembership() {
+        membershipMenu.click();
+    }
+
+    public void navigateToDashboard() {
+        homeMenu.click();
+    }
+
+    public void clickOkButton() {
+        okButton.click();
+    }
+    public WebDriver driver1() {
+    	return driver;
+    }
+}

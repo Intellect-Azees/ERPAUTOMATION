@@ -1,0 +1,18 @@
+package TestData;
+
+public class Data_Generator {
+	static Faker faker = new Faker();
+
+    public static String getRandomUsername() {
+        return faker.name().username();
+    }
+
+    public static String getRandomPassword() {
+        return faker.internet().password(5, 12);
+    }
+
+    public static String getSpecialCharUsername() {
+        return faker.bothify("????##");
+    }
+
+}

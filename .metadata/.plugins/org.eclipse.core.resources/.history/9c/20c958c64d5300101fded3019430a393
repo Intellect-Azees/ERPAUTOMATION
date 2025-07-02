@@ -1,0 +1,32 @@
+package TestMembership;
+
+import Membership.EnrollMember;
+import TestLogin.TestePACSLogin;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+
+import Base.LaunchBrowser;
+import DashBoard.Dashboard;
+
+public class TestEnrollMember extends TestePACSLogin {
+
+    //private Dashboard dashboard;
+    private EnrollMember enrollMember;
+    //WebDriver driver=LaunchBrowser.driver;
+
+    @Test
+    public void testEnrollMember() throws Exception
+    {
+    	Dashboard dashboard = new Dashboard();
+ //   	WebDriver drive=dashboard.driver1();
+    	enrollMember = new EnrollMember();
+
+    	Thread.sleep(5000);
+    	dashboard.clickOkButton();
+    	Thread.sleep(5000);
+    	dashboard.navigateToMembership();
+    	Thread.sleep(5000);
+    	enrollMember.enrollMember("Azees", "A", "623281555606");
+    }
+}

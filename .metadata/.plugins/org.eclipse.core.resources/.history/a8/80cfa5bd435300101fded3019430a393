@@ -1,0 +1,28 @@
+package TestMembership;
+
+import Membership.EnrollMember;
+import TestLogin.TestePACSLogin;
+import org.testng.annotations.Test;
+
+import DashBoard.Dashboard;
+
+public class TestEnrollMember extends TestePACSLogin {
+
+    private Dashboard dashboard;
+    private EnrollMember enrollMember;
+    
+
+    @Test
+    public void testEnrollMember() throws Exception
+    {
+    	dashboard = new Dashboard(null);
+    	enrollMember = new EnrollMember();
+
+    	Thread.sleep(5000);
+    	dashboard.clickOkButton();
+    	Thread.sleep(5000);
+    	dashboard.navigateToMembership();
+    	Thread.sleep(5000);
+    	enrollMember.enrollMember("Azees", "A", "623281555606");
+    }
+}

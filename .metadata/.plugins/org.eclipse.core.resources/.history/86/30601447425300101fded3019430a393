@@ -1,0 +1,35 @@
+package TestMembership;
+
+import Membership.EnrollMember;
+import TestLogin.TestePACSLogin;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.Test;
+
+import DashBoard.Dashboard;
+
+import java.time.Duration;
+
+public class TestEnrollMember extends TestePACSLogin {
+
+    private Dashboard dashboard;
+    private EnrollMember enrollMember;
+
+    @Test
+    public void testEnrollMember() throws Exception {
+        // Ensure driver is initialized in TestePACSLogin before this point
+        dashboard = new Dashboard(driver);
+        enrollMember = new EnrollMember(driver);
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        // Wait for OK button and click it
+        wait.until(ExpectedConditions.elementToBeClickable(dashboard.okButton)).click();
+
+        // Wait for membership menu and click it
+        wait.until(ExpectedConditions.elementToBeClickable(dashboard.getMembershipMenu())).click();
+
+        // Call enrollment method
+        enrollMember.enrollMember("Azees", "A", "623281555606");
+    }
+}

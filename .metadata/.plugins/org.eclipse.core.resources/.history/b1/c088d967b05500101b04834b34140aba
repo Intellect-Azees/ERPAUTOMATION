@@ -1,0 +1,31 @@
+package TestMembership;
+
+import Membership.EnrollMember;
+import TestData.Data_Generator;
+import TestLogin.TestePACSLogin;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+
+import Base.LaunchBrowser;
+import DashBoard.Dashboard;
+
+public class TestEnrollMember extends TestePACSLogin {
+
+    private EnrollMember enrollMember;
+    public Data_Generator datagen;
+
+    @Test
+    public void testEnrollMember() throws Exception
+    {
+    	Dashboard dashboard = new Dashboard();
+    	enrollMember = new EnrollMember();
+    	Thread.sleep(5000);
+    	dashboard.clickOkButton();
+    	Thread.sleep(5000);
+    	dashboard.navigateToMembership();
+    	Thread.sleep(5000);
+    	//enrollMember.enrollMember("Nominal Member","Azees", "A", "623281555606", "Azees","25");
+    	enrollMember.enrollMember("Nominal Member",datagen.getLastName(),datagen.getFirtName(), datagen.generateAadharNumber(), datagen.getFullNemeAsAadhar(),"25");
+    }
+}
