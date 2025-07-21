@@ -53,7 +53,7 @@ public class ePACSLog implements ITestListener {
 
     @Override
     public void onStart(ITestContext context) {
-        System.out.println("Test execution started: " + context.getName());
+       // System.out.println("Test execution started: " + context.getName());
     }
 
     @Override
