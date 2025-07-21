@@ -1,0 +1,66 @@
+# === Java compiled class files ===
+*.class
+
+# === Logs and crash dumps ===
+*.log
+*.hprof
+
+# === Maven build directory and generated files ===
+target/
+dependency-reduced-pom.xml
+release.properties
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+buildNumber.properties
+
+# === Eclipse project files ===
+.project
+.classpath
+.settings/
+.loadpath
+.metadata/
+
+# === IntelliJ IDEA project files ===
+.idea/
+*.iml
+*.iws
+out/
+
+# === TestNG and Maven test output ===
+test-output/
+surefire-reports/
+*.xml
+
+# === Reports (Allure, ExtentReports, etc.) ===
+reports/
+extent-reports/
+allure-results/
+allure-report/
+
+# === Selenium temp files ===
+screenshots/
+selenium-screenshots/
+errorScreenshots/
+tmp/
+temp/
+
+# === OS-generated files ===
+.DS_Store
+Thumbs.db
+
+# === Git conflict backups ===
+*.orig
+
+# === Custom file types (requested) ===
+*.index
+*.png
+*.gif
+*.xmi
+*.tree
+*.snap
+*.dat
+*.launch
+*.ser
+*.txt
