@@ -9,11 +9,11 @@
 target/
 dependency-reduced-pom.xml
 release.properties
+buildNumber.properties
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
 pom.xml.next
-buildNumber.properties
 
 # === Eclipse project files ===
 .project
@@ -21,6 +21,15 @@ buildNumber.properties
 .settings/
 .loadpath
 .metadata/
+*.launch
+*.tmp
+
+# === Eclipse local history and index files ===
+.metadata/.plugins/org.eclipse.core.resources/.projects/**/.history/
+.metadata/.plugins/org.eclipse.jdt.core/*.index
+.metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt
+.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
+.metadata/version.ini
 
 # === IntelliJ IDEA project files ===
 .idea/
@@ -39,7 +48,7 @@ extent-reports/
 allure-results/
 allure-report/
 
-# === Selenium temp files ===
+# === Screenshots and temporary selenium files ===
 screenshots/
 selenium-screenshots/
 errorScreenshots/
@@ -49,18 +58,29 @@ temp/
 # === OS-generated files ===
 .DS_Store
 Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
 
 # === Git conflict backups ===
 *.orig
 
-# === Custom file types (requested) ===
-*.index
+# === Backup and recovery files ===
+*~
+*.bak
+*.swp
+*.swo
+*.swn
+
+# === Common data/output files ===
 *.png
 *.gif
 *.xmi
 *.tree
 *.snap
 *.dat
-*.launch
 *.ser
 *.txt
+
+# === IDE cache ===
+.cache/
