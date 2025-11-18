@@ -6,6 +6,7 @@ import net.sourceforge.tess4j.TesseractException;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Base64;
 
 import javax.imageio.ImageIO;
@@ -18,7 +19,7 @@ public class HandelCaptcha {
     public HandelCaptcha(WebElement captchaElement) {
         this.captchaElement = captchaElement;
     }
-
+    String projectPath = System.getProperty("user.dir");
     public Boolean captcha() {
         if (captchaElement != null) {
             try {
@@ -28,15 +29,14 @@ public class HandelCaptcha {
                 if (tempImg == null || tempImg.isEmpty()) {
                     throw new IOException("Captcha src attribute is empty");
                 }
-
                 String[] parts = tempImg.split(","); 
                 String imageData = parts.length > 1 ? parts[1] : parts[0];
                 byte[] imageBytes = Base64.getDecoder().decode(imageData); 
                 ByteArrayInputStream bis = new ByteArrayInputStream(imageBytes);
                 BufferedImage bufferedImage = ImageIO.read(bis);
-
                 Tesseract tesseract = new Tesseract();
-                String tessdataPath = "D:\\aa\\e-PACS\\src\\main\\resources\\tessdata";
+                //String tessdataPath = "D:\\aa\\e-PACS\\src\\main\\resources\\tessdata";
+                String tessdataPath = Paths.get(projectPath, "src", "main", "resources", "tessdata").toString();
                 System.setProperty("TESSDATA_PREFIX", tessdataPath);
                 tesseract.setDatapath(tessdataPath);  
                 tesseract.setLanguage("eng");  
@@ -46,8 +46,11 @@ public class HandelCaptcha {
                 e.printStackTrace();
                 return false;
             }   
-        } else {
+        } 
+        else 
+        {
             return false;
         }
     }
+
 }

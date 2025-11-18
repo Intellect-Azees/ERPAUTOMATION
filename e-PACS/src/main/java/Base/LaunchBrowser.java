@@ -5,11 +5,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
+
 import java.time.Duration;
 
 public class LaunchBrowser {
     public static WebDriver driver;
-
     // Initialize WebDriver (singleton pattern)
     public static void initializeDriver() {
         if (driver == null) {

@@ -17,6 +17,9 @@ public class ePACSLogin {
 
     @FindBy(id = "Password")
     private WebElement passwordInput;
+    
+    @FindBy(id="LoginDataTime")
+    private WebElement loginDateInput;
 
     @FindBy(id = "imgcapt")
     private WebElement captchaLabel;
@@ -44,10 +47,11 @@ public class ePACSLogin {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    public void login(String username, String password) {
+    public void login(String username, String password,String loginDate) {
         try {
             userNameInput.sendKeys(username);
             passwordInput.sendKeys(password);
+            loginDateInput.sendKeys(loginDate);
             wait.until(ExpectedConditions.visibilityOf(captchaLabel));
             
             HandelCaptcha handelCaptcha = new HandelCaptcha(captchaLabel);

@@ -3,6 +3,16 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
+		<item value="directory"/>
+		<item value="ColorConstants"/>
+		<item value="extentreports"/>
+		<item value="toEmail"/>
+		<item value="(//span[@class=&apos;custom-combobox&apos;])[1]"/>
+		<item value="GeneralDetailsDTO_DateofBirth"/>
 		<item value="btnView"/>
 	</list>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="646"/>
+		<item key="DIALOG_Y_ORIGIN" value="349"/>
+	</section>
 </section>
